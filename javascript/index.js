@@ -3,7 +3,7 @@
  alert("Bienvenidos a Arpedag Store");
 
 let nombreVisitante =prompt("por favor ingresa su nombre: ");
-  alert("Bienvenido/a: " +nombreVisitante+ " a Arpedag Store");
+  console.log("Bienvenido/a: " +nombreVisitante+ " a Arpedag Store");
  
 // 1. Se crea un programa que permita identificar el ingreso a la tienda, e identificar su ingreso en calidad de: (Administrador, Gerente, Vendedor o Cliente u Otro). 
 
@@ -26,34 +26,33 @@ switch (rol) {
         break;
 }
 }
-const respuesta = accesoPorRol("cliente");  // en el llamado debe indicar el rol si es gerente, asministrador, vendedor o cliente. 
+const respuesta = accesoPorRol("cliente");  
 // const respuesta = accesoPorRol();
+ 
 
-// 2. el cliente puede conocer la sumaoria de sus productos ingresando el precio 
+// 2. el cliente puede conocer la sumatoria de sus productos ingresando el precio 
 
 let total = 0;
 let contadorProductos = 0; // Variable para contar los productos
 
-// Solicitar el valor primer producto
 let productoUno = parseFloat(prompt("Por favor ingresa el valor del producto uno:"));
 if (!isNaN(productoUno) && productoUno >= 0) {
-  total += productoUno; // Sumamos el primer producto al total
-  contadorProductos++; // Aumenta el contador
+  total += productoUno; 
+  contadorProductos++; 
 } else {
-  alert("Por favor ingresa un número válido para el primer producto.");
+  console.log("Por favor ingresa un número válido para el primer producto.");
 }
-// Bucle para agregar más productos
 while (true) {
   let productoDos = prompt("Ingresa el valor del siguiente producto o escribe 'fin' para finalizar operación");
   if (productoDos.toLowerCase() === "fin") {
-    break; // Finaliza el bucle si el usuario escribe 'terminar'
+    break; // Finaliza el bucle si el usuario escribe 'fin'
   }
   let valorProducto = parseFloat(productoDos);
   if (!isNaN(valorProducto) && valorProducto >= 0) {
-    total += valorProducto; // Sumar el producto al total
-    contadorProductos++; // Aumenta el contador
+    total += valorProducto;  
+    contadorProductos++;  
   } else {
-    alert("Por favor ingresa un número correcto");
+    console.log("Por favor ingresa un número válido");
   }
   
 }
@@ -62,22 +61,16 @@ console.log("La cantidad de productos ingresados es: " + contadorProductos);
 console.log("El valor total de los productos es: $ " + total.toFixed(2));
 
 
-
-// simulador de productos 
-// el usuario ingresa el numero del producto que desea comprar de la lista disponiblecuando finalice la seleccion se le genera el total de los productos. 
-
-
+// 3. Simulador de productos disponibles
 class Chocolate {
   constructor(nombre, precio) {
       this.nombre = nombre;
       this.precio = precio;
   }
-
   toString() {
       return `${this.nombre} - $${this.precio.toFixed(2)}`;
   }
 }
-
 class Tienda {
   constructor() {
       this.chocolates = [
@@ -87,14 +80,12 @@ class Tienda {
           new Chocolate("Chocolate de Sabores", 22000)
       ];
   }
-
   mostrarChocolates() {
       console.log("Chocolates disponibles:");
       this.chocolates.forEach((chocolate, index) => {
           console.log(`${index + 1}. ${chocolate}`);
       });
   }
-
   comprar() {
       let total = 0;
 
@@ -105,9 +96,7 @@ class Tienda {
           if (seleccion.toLowerCase() === 'fin') {
               break;
           }
-
           const indice = parseInt(seleccion) - 1;
-
           if (!isNaN(indice) && indice >= 0 && indice < this.chocolates.length) {
               total += this.chocolates[indice].precio;
               console.log(`Has agregado ${this.chocolates[indice].nombre} al carrito.`);
@@ -115,15 +104,12 @@ class Tienda {
               console.log("Selección no válida. Intenta de nuevo.");
           }
       }
-
       console.log(`Total de la compra: $${total.toFixed(2)}`);
   }
 }
-
 function simulador() {
   const tienda = new Tienda();
   tienda.comprar();
 }
-
 // Ejecutar el simulador
 simulador();
