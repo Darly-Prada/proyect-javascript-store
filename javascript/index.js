@@ -91,7 +91,7 @@ class Tienda {
 
       while (true) {
           this.mostrarChocolates();
-          const seleccion = prompt("Selecciona el número del chocolate que deseas comprar (o 'fin' para salir):");
+          const seleccion = prompt("Selecciona  de 1 al 4 el número del chocolate que deseas comprar (o 'fin' para salir):");
 
           if (seleccion.toLowerCase() === 'fin') {
               break;
