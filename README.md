@@ -27,9 +27,11 @@ El usuario ingresa el numero del producto que desea comprar de la lista disponib
 - Usando class y contructor para crear los productos disponibles 
 - el suario selecciona el numero de producto que desea comprar y apenas lo agrega le muestra un mensaje que fue añadido y el bucle recarga la lista disponible
 - debe escribir fin para terminar la operacion y al finalizar se le totaliza el valor de la compra. 
+4. Se adiciona que al finalizar de añadir los productos seleccionados 
+    se muestra la lista de productos seeccionados y el subtotal por la cantidad de cada producto agregado al carrito. 
 
-// La idea es poder integrarlo a la plantilla del html y que sea funcional, "en desarrollo" . 
-
+- al final el total de toda la compra
+ 
 Gracias
 
 #### Darleida Prada 

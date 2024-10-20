@@ -29,39 +29,6 @@ switch (rol) {
 const respuesta = accesoPorRol("cliente");  
 // const respuesta = accesoPorRol();
  
-
-// 2. el cliente puede conocer la sumatoria de sus productos ingresando el precio 
-
-let total = 0;
-let contadorProductos = 0; // Variable para contar los productos
-
-let productoUno = parseFloat(prompt("Por favor ingresa el valor del producto uno:"));
-if (!isNaN(productoUno) && productoUno >= 0) {
-  total += productoUno; 
-  contadorProductos++; 
-} else {
-  console.log("Por favor ingresa un número válido para el primer producto.");
-}
-while (true) {
-  let productoDos = prompt("Ingresa el valor del siguiente producto o escribe 'fin' para finalizar operación");
-  if (productoDos.toLowerCase() === "fin") {
-    break; // Finaliza el bucle si el usuario escribe 'fin'
-  }
-  let valorProducto = parseFloat(productoDos);
-  if (!isNaN(valorProducto) && valorProducto >= 0) {
-    total += valorProducto;  
-    contadorProductos++;  
-  } else {
-    console.log("Por favor ingresa un número válido");
-  }
-  
-}
-// Mostrar la cantidad de productos que ingreso y el costo total
-console.log("La cantidad de productos ingresados es: " + contadorProductos);
-console.log("El valor total de los productos es: $ " + total.toFixed(2));
-
-
-// 3. Simulador de productos disponibles
 class Chocolate {
   constructor(nombre, precio) {
       this.nombre = nombre;
@@ -71,6 +38,7 @@ class Chocolate {
       return `${this.nombre} - $${this.precio.toFixed(2)}`;
   }
 }
+
 class Tienda {
   constructor() {
       this.chocolates = [
@@ -79,37 +47,58 @@ class Tienda {
           new Chocolate("Chocolate Blanco", 14500),
           new Chocolate("Chocolate de Sabores", 22000)
       ];
+      this.carrito = []; // Arreglo para almacenar los productos comprados
   }
+
   mostrarChocolates() {
       console.log("Chocolates disponibles:");
       this.chocolates.forEach((chocolate, index) => {
           console.log(`${index + 1}. ${chocolate}`);
       });
   }
+
   comprar() {
       let total = 0;
 
       while (true) {
           this.mostrarChocolates();
-          const seleccion = prompt("Selecciona  de 1 al 4 el número del chocolate que deseas comprar (o 'fin' para salir):");
+          const seleccion = prompt("Selecciona de 1 al 4 el número del chocolate que deseas comprar (o 'fin' para salir):");
 
           if (seleccion.toLowerCase() === 'fin') {
               break;
           }
           const indice = parseInt(seleccion) - 1;
           if (!isNaN(indice) && indice >= 0 && indice < this.chocolates.length) {
-              total += this.chocolates[indice].precio;
-              console.log(`Has agregado ${this.chocolates[indice].nombre} al carrito.`);
+              const chocolateSeleccionado = this.chocolates[indice];
+              
+              // Preguntar cuántas unidades desea comprar
+              const unidades = parseInt(prompt(`¿Cuántas unidades de ${chocolateSeleccionado.nombre} deseas comprar?`));
+              if (!isNaN(unidades) && unidades > 0) {
+                  total += chocolateSeleccionado.precio * unidades;
+                  this.carrito.push({ chocolate: chocolateSeleccionado, unidades }); // Agrega el chocolate y unidades al carrito
+                  console.log(`Has agregado ${unidades} de ${chocolateSeleccionado.nombre} al carrito.`);
+              } else {
+                  console.log("Cantidad no válida. Intenta de nuevo.");
+              }
           } else {
               console.log("Selección no válida. Intenta de nuevo.");
           }
       }
+
+      // Mostrar el detalle de la compra
+      console.log("Detalle de tu compra:");
+      this.carrito.forEach((item) => {
+          const subtotal = item.chocolate.precio * item.unidades;
+          console.log(`${item.chocolate.toString()} x ${item.unidades} - Subtotal: $${subtotal.toFixed(2)}`);
+      });
       console.log(`Total de la compra: $${total.toFixed(2)}`);
   }
 }
+
 function simulador() {
   const tienda = new Tienda();
   tienda.comprar();
 }
+
 // Ejecutar el simulador
 simulador();
