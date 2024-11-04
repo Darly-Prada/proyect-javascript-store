@@ -1,49 +1,116 @@
-  * {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #ffe1e1;
+}
+#carrito{
+    
+    width: 350px;
+    height: auto;
+    background-color: #96d2be;
+    list-style: none;
+    padding: 16px;
     color: #240e06;
-  }
+    padding: 12px;
+    margin:auto;
+}
+#producto{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    gap:3px; 
+    font-weight: bold; 
+    
 
-  h1 {
+}
+
+
+#total{
+    background-color: #96d2be;
+    color: blue;
+    font-weight: bold;
+    width: 350px;
+    height: 20px;
+    margin:auto;
+    padding-bottom: 3rem;
+    text-align: center;
+}
+.icon{
+    display: flex;
+    justify-content: center;  
+    align-items: center; 
+ 
+}
+.icon-i{
+  font-size: 42px; 
+  color: darkred;
+  font-weight: bold;
+}
+
+.cardContainer {
+    max-height: auto;
+    border-radius: 8px;
+    margin: 10px;
+    padding: 16px;
+    text-align: center;
+    width: 300px;
+    display: inline-block; /* Para que se alineen en filas */
+   }
+
+.card-img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+.cardContainer{
+    width: 250px;
+    height: auto;
+    background-color: whitesmoke;
+    border: 1px solid #db894d;
+    padding: 18px;
+    margin: 12px;
+    text-align: center;
+    color: #240e06;
+    }
+    .cardContainer:hover{
+        color: #f59118;
+        transform: scale(1.03);
+    }
+
+h3{
+    margin: 2rem;
+}
+
+body{
+    background-color: #ffe1e1;
+    color: #2b1403;
+ }
+
+h1 {
     font-size: 3.5rem;
     transition: all;
   }
   h1:hover {
     color: #f59118;
     transform: scale(1.2);
-  
   }
   h2 {
-    border-bottom: 2px solid #6f4c3e;
-    padding-bottom: 10px;
+      padding-bottom: 10px;
     font-size: 2rem;
     text-align: center;
     font-weight: bold;
   }
-
-  h3 {
-    font-size: 1.5rem;
-    margin: 8px 16px;
-  
-  }
-  h3:hover {
-    color: #f59118;
-    
-  }
-
   h2:hover {
     color: #f59118;
   }
+p{
+    font-size: 24px;
+    font-weight: bold;
+    color: yellow;
+}
 
-  .header {
+.header {
     height: 40vh;
     display: flex;
     justify-content: space-between;
@@ -62,6 +129,63 @@
       border-radius: 50%;
       box-shadow: -6px 0px 10px #f59118;
     }
+
+    .boton {
+        background-color: #240e06;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+    
+      .boton:hover {
+        background-color: #583c30;
+          transform: scale(1.04);
+          color: #f59118;
+        }
+
+        .registro {
+          background-color: #240e06;
+          color: white;
+          border: none;
+          padding: 10px 15px;
+          cursor: pointer;
+          border-radius: 5px;
+        }
+      
+        .registro:hover {
+          background-color: #583c30;
+            transform: scale(1.04);
+            color: #f59118;
+          }
+        .boton1 {        
+            background-color:#96d2be;
+            font-size: 14px;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+          }
+    .formulario{
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        padding: 1rem;
+        margin: 12px auto;
+      }
+
+      label {
+        margin: 5px 0;
+      }
+      input,
+      textarea {
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #240e06;
+        border-radius: 5px;
+        background-color: #ffe1e1;
+      }
 
   img {
     margin: 8px;
@@ -101,208 +225,85 @@
   }
 
 
-  main {
-    padding: 20px;
-  }
-
-  .section1 {
-    margin-bottom: 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 12px;
-    margin: 12px;
-  }
-
-  .producto {
-    width: 280px;
-    height: auto;
-    border: 1px solid #ccc;
-    border-radius: 12px;
-    padding: 18px;
-    margin: 10px;
-    padding: 18px;
-    text-align: center;
-    background-color: #fff;
-    transition: transform 0.3s ease;
-  }
-  .producto:hover {
-    transform: scale(1.03);
-  }
-
-  .producto img {
-    max-width: 100%;
-    height: auto;
-  }
-  p {
-    font-size: 16px;
-    padding: 12px;
-    margin: 12px;
-    text-align: justify;
-  }
-  .precio {
-    font-weight: bold;
-    font-style: italic;
-  }
-  strong {
-    font-size: 14px;
-    color: #5b3e32;
-  }
-  .objetivos{
-    width: 80%;
-    margin: auto;
-    padding: 8px 12px;
-    box-shadow: -6px 0px 10px #f59118; 
-  }
-  ul{
-    list-style: none;
-  }
-  .item{
-    margin: 12px;
-    padding: 12px;
-    color: #240e06;
-    font-size: 18px;
-  
-  }
-    .datos {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .img-datos {
-    max-width: 80%;
-    margin: 12px;
-    border-radius: 20px;
-  }
-  button {
-    background-color: #240e06;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-
-  button:hover {
-    background-color: #5b3e32;
-      transform: scale(1.04);
-      color: #f59118;
-    }
-  form {
-    display: flex;
-    flex-direction: column;
-    margin: 16px 24px;
-    width: 50%;
-  }
-
-  label {
-    margin: 5px 0;
-  }
-  input,
-  textarea {
-    padding: 10px;
-    margin: 5px 0;
-    border: 1px solid #240e06;
-    border-radius: 5px;
-    background-color: #ffe1e1;;
-  }
-
-  footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    background-color: #240e06;
-    color: white;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    word-spacing: 10px; 
-  }
-
-
 /* Media Queries */
 @media (max-width: 768px) {
-  h1 {
-      font-size: 2.5rem;
+    h1 {
+        font-size: 2.5rem;
+    }
+    h2 {
+        font-size: 1.5rem;
+    }
+    .header{
+      flex-direction: column;
+      height:auto;
+      gap: 1rem;
+    }
+  
+    .navbar{
+      flex-direction: column;
+    }
+    .section1 {
+        flex-direction: column;
+        align-items: center;
+    }
+    .producto {
+        width: 80%; /* Take full width on smaller screens */
+    }
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    nav ul li {
+        margin: 10px 0;
+    }
+    form {
+        width: 80%;
+    }
+    .datos{
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .item{
+      font-size: 16px;
+      text-align: justify;
+    }
   }
-  h2 {
-      font-size: 1.5rem;
-  }
-  .header{
+  
+  @media (max-width: 350px) {
+    h1 {
+        font-size: 2rem;
+    }
+    h2, h3 {
+        font-size: 1.2rem;
+    }
+    .header{
     flex-direction: column;
     height:auto;
-    gap: 1rem;
-  }
-
-  .navbar{
-    flex-direction: column;
-  }
-  .section1 {
+    gap: .75rem;
+    }
+    .navbar{
       flex-direction: column;
-      align-items: center;
-  }
-  .producto {
-      width: 80%; /* Take full width on smaller screens */
-  }
-  nav ul {
-      flex-direction: column;
-      align-items: center;
-  }
-  nav ul li {
-      margin: 10px 0;
-  }
-  form {
-      width: 80%;
-  }
+    }
+    p {
+        font-size: 14px;
+    }
+    button {
+        padding: 8px 10px;
+    }
+    .producto {
+        width: 100%; 
+    }
+    .item{
+      font-size: 14px;
+      text-align: justify;
+    }
   .datos{
     display: flex;
     justify-content: center;
     flex-direction: column;
   }
-  .item{
-    font-size: 16px;
-    text-align: justify;
+    input, textarea {
+        font-size: 14px;
+    }
   }
-}
-
-@media (max-width: 350px) {
-  h1 {
-      font-size: 2rem;
-  }
-  h2, h3 {
-      font-size: 1.2rem;
-  }
-  .header{
-  flex-direction: column;
-  height:auto;
-  gap: .75rem;
-  }
-  .navbar{
-    flex-direction: column;
-  }
-  p {
-      font-size: 14px;
-  }
-  button {
-      padding: 8px 10px;
-  }
-  .producto {
-      width: 100%; 
-  }
-  .item{
-    font-size: 14px;
-    text-align: justify;
-  }
-.datos{
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-  input, textarea {
-      font-size: 14px;
-  }
-}
