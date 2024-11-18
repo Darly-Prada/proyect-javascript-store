@@ -1,0 +1,60 @@
+[
+    { 
+     "id": 1,
+     "nombre": "Chocolate Amargo",
+     "imagen": "./assets/amargo1.jpg",
+     "precio": 4250 
+    },
+
+    { "id": 2, 
+    "nombre": "Chocolate Mixto", 
+    "imagen": "./assets/mixto.jpg", 
+    "precio": 6450 
+    },
+
+    { "id": 3,
+     "nombre": "Chocolate Dulce",
+     "imagen": "./assets/dulce.jpeg",
+     "precio": 5650 
+    },
+
+    { "id": 4,
+     "nombre": "Chocolate Blanco",
+     "imagen": "./assets/leche.jpg",
+     "precio": 2500 
+    },
+
+    { "id": 5,
+      "nombre": "Chocolate en Polvo",
+      "imagen": "./assets/polvo.jpg",
+     "precio": 3700 
+    },
+
+    { "id": 6,
+     "nombre": "Chocolate Liquido", 
+    "imagen": "./assets/liquido.jpeg",
+     "recio": 2250 
+    },
+
+    { "id": 7,
+     "nombre": "Chocolate de Arequipe",
+     "imagen": "./assets/arequipe.jpg",
+     "precio": 2850 
+    },
+
+    { "id": 8,
+     "nombre": "Chocolate de Clavos y Canela",
+    "imagen": "./assets/clavos-canela.jpg", "precio": 1400 
+    },
+
+    { "id": 9,
+     "nombre": "Chocolate de Vainilla", 
+    "imagen": "./assets/vainilla.jpeg", 
+    "precio": 3500 
+    },
+
+    { "id": 10,
+     "nombre": "Chocolate de Avellanas",
+     "imagen": "./assets/avellanas.jpeg", "precio": 7500 
+    }
+]

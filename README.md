@@ -5,9 +5,8 @@ en varias presentaciones
 ## CONTENIDO 
 
 ### Primer Programa 
-1. le permie al usuario registrar e identificar el ingreso a la tienda,si es (Administrador, Gerente, Vendedor o Cliente u Otro). 
-se realiza atraves de un programa de acceso por roles 
-en el llamado a la funcion deberá indicar el rol en la tienda si es gerente, asministrador, vendedor o cliente.  
+1. le permie al usuario registrar e identificar el ingreso a la tienda 
+el usuario debe registrar su nombre y correo para poder ver el conenido de la tienda .  
 
 ### Segundo Programa 
 2. El usuario puede calcular el valor de los productos ingresando un precio 

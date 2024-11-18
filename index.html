@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=shopping_cart" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-..." crossorigin="anonymous" />
+    <!-- Incluye Bootstrap desde un CDN en la Navbar -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
 
     <link rel="stylesheet" href="./css/styles.css">
 
@@ -20,44 +25,81 @@
         <h1 id="titulo">Arpedag Store</h1>
         <nav class="navbar">
             <ul>
-                <li><a href="#productos-amargos">Home</a></li>
-                <li><a href="#productos-dulces">Store</a></li>
-                <li><a href="#productos-sabores">Varius</a></li>
-                <li><a href="#sobre-nosotros">About Us</a></li>
+                <li><a href="./html/home.html">Home</a></li>
+                <li><a href="index.html">Store</a></li>
+                <li><a href="#">About Us</a></li>
             </ul>
         </nav>
         <img class="img-logo" src="./assets/arpedag.jpg" alt="logotipo empresa">
     </header>
+    <!-- Menú de redes sociales -->
+    <h3>Redes Sociales</h3>
+    <div>
+        <a class="items" href="https://www.facebook.com/loguin" target="_blank">
+            <i class="fab fa-facebook-square fa-2x"></i>
+        </a>
+        <a class="items" href="https://twitter.com/loguin" target="_blank">
+            <i class="fab fa-twitter-square fa-2x"></i>
+        </a>
+        <a class="items" href="https://www.linkedin.com" target="_blank">
+            <i class="fab fa-linkedin fa-2x"></i>
+        </a>
+        <a class="items" href="https://whatsapp.com" target="_blank">
+            <i class="fab fa-whatsapp-square fa-2x"></i>
+        </a>
+        <a class="items" href="https://gmail.com" target="_blank">
+            <i class="fas fa-envelope fa-2x"></i>
+        </a>
+    </div>
 
     <main>
 
-        <div id="form-container" class="formulario">
-            <h2>Información del Usuario</h2>
-            <form id="user-form">
-                <label for="nombre">Nombre:</label>
-                <input type="text" placeholder="Ingrese su Nombre" id="nombre" required>
+        <!-- Formulario de usuario -->
+        <form id="user-form" class="formulario">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required>
+            <button type="submit" class="boton">Iniciar sesión</button>
+        </form>
 
-                <label for="email">Correo Electrónico:</label>
-                <input type="email" placeholder="Ingrese su Correo" id="email" required>
+        <!-- Contenido de la tienda y carrito (inicialmente oculto) -->
+        <section id="store" style="display:none;" class="form">
+            <div class="carro">
+                <ul id="carrito"></ul>
+                <p id="total"></p>
+            </div>
+    <!-- Contenedor para el total y el botón de comprar -->
+            <div id="total-compra"></div>
+            <div id="producto"></div>
 
-                <button class="registro" type="submit">Enviar</button>
-            </form>
-        </div> <hr>
+            <div class="contenido"></div>
+        </section>
 
-        <div class="icon">
-            <h2>Carrito de Compras</h2>
-            <i class="material-symbols-outlined icon-i">
-                shopping_cart</i>
-        </div>
-        <ul id="carrito" class="ul-carro"></ul> <!-- Aquí se mostrarán los productos del carrito -->
-        <div id="total">Total: 0</div>
-        <hr>
-        <h2>Nuestros Productos</h2>
-        <div id="producto"></div> <!-- Aquí se mostrarán los productos -->
     </main>
+
+    <footer>
+        <div class="container">
+            <div class="card">
+                <ul class="ul-footer">
+                    <h3>Contactanos</h3>
+                    <h4><i class="fa fa-solid fa-phone"></i>123 300 7800 </h4>
+                    <h4><i class="fa fa-envelope"></i>arpedag@gmail.com </h4>
+                    <h4><i class="fa fa-address-card"></i>Calle 19 # 8-90</h4>
+                </ul>
+                <p>No dudes en contactarnos. Estamos aquí para ayudarte y hacer realidad tus dulces ideas.</p>
+                <strong>¡Esperamos saber de ti pronto! 💬</strong>
+            </div>
+            <div class="card">
+                <img class="img" src="../proyect-javascript-store/assets/contactos.jpeg" alt="datos de contacto">
+                <strong>¡Esperamos nos contactes!</strong>
+            </div>
+        </div>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    
+    <!-- Incluye el JS script de Bootstrap desde un CDN -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="./javascript/main.js"></script>
 </body>
 
