@@ -1,8 +1,13 @@
-// Arpedag Store 
+// variable Global 
+let tiendaProductos = []; 
+const url = ("./javascript/datos.json")
 
-let tiendaProductos = []; // variable Global 
 // Cargamos el carrito desde localStorage
 const carrito = JSON.parse(localStorage.getItem("carrito")) || []; 
+
+// Mensajes de Bienvenida!
+mostrarToast("¡Registra tus datos para ingresar a la tienda!", 5000, "top", "center", "linear-gradient(to right,#ba170f, #00b09b, #96c93d)");
+mostrarToast("Bienvenidos a Arpedag Store", 3000, "top", "left", "linear-gradient(to right, #00b09b, #96c93d)");
 
 // Función para mostrar los mensajes toastify
 function mostrarToast(texto, duracion = 3000, gravedad = "top", posicion = "center", colorFondo = "linear-gradient(to right, #ba170f, #00b09b, #96c93d)") {
@@ -10,8 +15,8 @@ function mostrarToast(texto, duracion = 3000, gravedad = "top", posicion = "cent
         text: texto,
         duration: duracion,
         close: true,
-        gravity: gravedad,  // Puede ser "top" o "bottom"
-        position: posicion,  // Puede ser "left", "center", "right"
+        gravity: gravedad,  
+        position: posicion, 
         stopOnFocus: true, 
         style: {
             background: colorFondo,
@@ -28,18 +33,17 @@ function mostrarToast(texto, duracion = 3000, gravedad = "top", posicion = "cent
 // Función asincrónica para obtener los datos de la tienda desde archivo Json. 
 async function cargarProductos() {
     try {
-        const responseJson = await fetch("./javascript/datos.json");
+        const responseJson = await fetch(url);
         if (!responseJson.ok) {
             throw new Error(`Error al cargar el archivo JSON: ${responseJson.statusText}`);
         }
         const dataJson = await responseJson.json();
         tiendaProductos = dataJson;
-        mostrarProductos(tiendaProductos);  // Mostrar productos cargados
+        mostrarProductos(tiendaProductos);   
     } catch (error) {
         mostrarToast("Error al cargar los productos.", 3000, "top", "center", "linear-gradient(to right, #ba170f, #00b09b, #96c93d)");
     }
 }
-
 // Función para mostrar los productos en la tienda
 function mostrarProductos(tiendaProductos) {
     const productoSection = document.getElementById("producto");
@@ -49,13 +53,11 @@ function mostrarProductos(tiendaProductos) {
         const cardDiv = document.createElement("div");
         cardDiv.className = "cardContainer";
 
-        // Asegúrate de que el precio sea un número
         const precio = parseFloat(producto.precio);
         if (isNaN(precio)) {
             mostrarToast("El precio no es válido:", 2000, "top", "center", "linear-gradient(to right, #ba170f, #00b09b, #96c93d)");
             return;
         }
-
         cardDiv.innerHTML = `
             <h3>${producto.nombre}</h3>
             <img src="${producto.imagen}" alt="${producto.nombre}" class="card-img">
@@ -65,7 +67,6 @@ function mostrarProductos(tiendaProductos) {
         productoSection.appendChild(cardDiv);
     });
 }
-
 // Función para añadir productos al carrito
 function añadirCarro(id) {
     const producto = tiendaProductos.find(prod => prod.id === id);
@@ -78,19 +79,17 @@ function añadirCarro(id) {
         carrito.push({ ...producto, cantidad: 1 });
         mostrarToast("¡Añadiste un producto nuevo al Carrito!", 2000, "top", "center", "linear-gradient(to right, #ba170f, #00b09b, #96c93d)");
     }
-
     localStorage.setItem("carrito", JSON.stringify(carrito));
-    mostrarCarrito();  // Actualizar el carrito mostrado
-    actualizarContadorCarrito();  // Actualizar contador del carrito
+    mostrarCarrito();  
+    actualizarContadorCarrito(); 
 }
-
 function mostrarCarrito() {
     const carritoList = document.getElementById("carrito");
-    carritoList.innerHTML = "";  // Limpiar el contenido previo
+    carritoList.innerHTML = "";  
     let subtotal = 0;
     let totalItems = 0;
 
-    // Verifica si el carrito está vacío
+    // Verificar si el carrito está vacío
     if (carrito.length === 0) {
         carritoList.innerHTML = `
             <h2>Carrito de Compra 🛒</h2>
@@ -98,7 +97,6 @@ function mostrarCarrito() {
         document.getElementById("total").textContent = "";
         return;
     }
-
     carrito.forEach((producto, index) => {
         let li = document.createElement("li");
         li.textContent = `${producto.nombre}; Llevas ${producto.cantidad} unidad por: $${(producto.precio * producto.cantidad).toFixed(2)}`;
@@ -124,7 +122,6 @@ function mostrarCarrito() {
         totalCompra.innerHTML += `<button onclick="procesarCompra()" class="boton">Pagar</button>`;
     }
 }
-
 // Función para procesar la compra
 function procesarCompra() {
     if (carrito.length === 0) {
@@ -136,8 +133,7 @@ function procesarCompra() {
         actualizarContadorCarrito();
     }
 }
-
-// Función para vaciar el carrito
+// Función para vaciar el carrito despues de ejecutar la compra 
 function vaciarCarrito() {
     localStorage.removeItem("carrito");
     carrito.length = 0;
@@ -147,13 +143,13 @@ function vaciarCarrito() {
 
 // Función para eliminar un producto del carrito
 function eliminarProducto(index) {
-    carrito.splice(index, 1); // Elimina el producto del carrito usando el índice
-    localStorage.setItem("carrito", JSON.stringify(carrito)); // Actualiza el carrito en el localStorage
-    mostrarCarrito(); // Vuelve a mostrar el carrito actualizado
-    actualizarContadorCarrito(); // Actualiza el contador del carrito
+    carrito.splice(index, 1);  
+    localStorage.setItem("carrito", JSON.stringify(carrito));  
+    localStorage
+    mostrarCarrito();  
+    actualizarContadorCarrito();  
 }
-
-// Event listener para el formulario de usuario
+// Evento para el formulario de usuario
 const userForm = document.getElementById("user-form");
 userForm.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -165,22 +161,19 @@ userForm.addEventListener("submit", (event) => {
         mostrarToast("Por favor, introduce un correo electrónico válido.", 3000, "top", "center", "linear-gradient(to right, #ba170f, #00b09b, #96c93d)");
         return;
     }
-
     if (nombre && email) {
         mostrarToast(`¡Bienvenid@ ${nombre} a nuestra tienda!`, 3000, "top", "left", "linear-gradient(to right,#e8d90b, #00b09b, #ba170f)");
         localStorage.setItem("usuario", JSON.stringify({ nombre, email }));
         userForm.reset();
         document.getElementById("store").style.display = "block";
         mostrarCarrito();
-        cargarProductos();  // Cargar los productos de la tienda
+        cargarProductos();   
     } else {
         mostrarToast("Por favor, completa todos los campos.", 3000, "top", "center", "linear-gradient(to right, #ba170f, #00b09b, #96c93d)");
     }
 });
 
-// Mensajes de bienvenida
-mostrarToast("¡Registra tus datos para ingresar a la tienda!", 5000, "top", "center", "linear-gradient(to right,#ba170f, #00b09b, #96c93d)");
-mostrarToast("Bienvenidos a Arpedag Store", 3000, "top", "left", "linear-gradient(to right, #00b09b, #96c93d)");
+
 
 
 
